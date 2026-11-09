@@ -1,0 +1,32 @@
+/* Estilos de impresión: A4 vertical, limpios, sin navegación. */
+@page { size: A4 portrait; margin: 12mm 11mm 14mm; }
+
+:root, :root[data-theme="dark"] {
+  color-scheme: light;
+  --fondo: #fff; --superficie: #fff; --superficie-2: #f3f5f8; --texto: #111; --texto-suave: #444; --borde: #b9c0cb;
+}
+html, body { background: #fff !important; color: #111 !important; font-size: 10pt; }
+.lateral, .barra-sup, .toasts, .saltar, .no-imprimir, .barra-impresion, .btn, dialog, .barra-masiva, .filtros { display: none !important; }
+.app, .principal { display: block !important; }
+main { padding: 0 !important; max-width: none !important; }
+
+.hoja {
+  box-shadow: none !important; border-radius: 0 !important; margin: 0 !important;
+  padding: 0 !important; max-width: none !important; width: auto !important;
+}
+.hoja table { page-break-inside: auto; }
+.hoja tr, .hoja .bloque, .dep-imp { page-break-inside: avoid; break-inside: avoid; }
+.hoja thead { display: table-header-group; }
+.hoja tfoot { display: table-footer-group; }
+.hoja .salto { page-break-before: always; break-before: page; }
+.hoja h2 { page-break-after: avoid; break-after: avoid; }
+.hoja .barra { border: 1px solid #888; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.hoja .barra > span, .hoja thead th, .hoja .totales tr.total td, .hoja .punto { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+a { color: inherit; text-decoration: none; }
+.hoja .bloques { grid-template-columns: 1fr 1fr !important; }
+.hoja .cab-doc { display: flex !important; }
+.hoja td:nth-child(2) { min-width: 32mm; }
+
+/* Pantallas no pensadas para imprimir: tablas legibles igualmente */
+.tabla-cont { border: 0; overflow: visible; }
+thead th { position: static !important; }

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gestión de compras de material</title>
+  <meta name="description" content="Planificación de compras de material por departamentos, control de presupuesto y pedidos a proveedores.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231d4ed8'/%3E%3Cpath d='M8 11h16l-2 11H10z' fill='none' stroke='white' stroke-width='2.4' stroke-linejoin='round'/%3E%3Cpath d='M12 11a4 4 0 0 1 8 0' fill='none' stroke='white' stroke-width='2.4'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/print.css" media="print">
+  <!-- Librerías incluidas en la carpeta vendor/ (sin dependencias de Internet ni de servidor) -->
+  <script src="vendor/exceljs-4.4.0.min.js" defer></script>
+  <script src="vendor/papaparse-5.4.1.min.js" defer></script>
+  <script src="vendor/chart-4.4.1.umd.js" defer></script>
+  <!-- Scripts de la aplicación (clásicos, en orden de dependencias): funcionan abriendo index.html sin servidor -->
+  <script src="js/format.js" defer></script>
+  <script src="js/db.js" defer></script>
+  <script src="js/models.js" defer></script>
+  <script src="js/ui.js" defer></script>
+  <script src="js/sample.js" defer></script>
+  <script src="js/charts.js" defer></script>
+  <script src="js/excel.js" defer></script>
+  <script src="js/import.js" defer></script>
+  <script src="js/views/crud.js" defer></script>
+  <script src="js/views/departamentos.js" defer></script>
+  <script src="js/views/proveedores.js" defer></script>
+  <script src="js/views/centros.js" defer></script>
+  <script src="js/views/categorias.js" defer></script>
+  <script src="js/views/articulos.js" defer></script>
+  <script src="js/views/pedidos.js" defer></script>
+  <script src="js/views/imprimir.js" defer></script>
+  <script src="js/views/panel.js" defer></script>
+  <script src="js/views/ajustes.js" defer></script>
+  <script src="js/views/importar.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <a class="saltar" href="#vista" id="saltar">Saltar al contenido</a>
+  <div class="app">
+    <aside class="lateral" id="lateral">
+      <div class="marca">
+        <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><rect width="32" height="32" rx="7" fill="var(--primario)"/><path d="M8 11h16l-2 11H10z" fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"/><path d="M12 11a4 4 0 0 1 8 0" fill="none" stroke="#fff" stroke-width="2.4"/></svg>
+        <span>Compras de material</span>
+      </div>
+      <nav aria-label="Navegación principal">
+        <ul class="menu">
+          <li><a href="#/panel" data-ruta="panel"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13h8V3H3zm0 8h8v-6H3zm10 0h8V11h-8zm0-18v6h8V3z"/></svg>Panel</a></li>
+          <li><a href="#/articulos" data-ruta="articulos"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h10v2H4z"/></svg>Artículos</a></li>
+          <li><a href="#/pedidos" data-ruta="pedidos"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15H6zm8 1.5V8h4.5zM9 12h8v2H9zm0 4h8v2H9z"/></svg>Pedidos<span class="contador" id="contador-pedidos" hidden></span></a></li>
+          <li class="menu-sep" role="presentation"></li>
+          <li><a href="#/departamentos" data-ruta="departamentos"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2 8l10 5 10-5zm-8 8.2V16l8 4 8-4v-4.8l-8 4z"/></svg>Departamentos</a></li>
+          <li><a href="#/proveedores" data-ruta="proveedores"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h11v9H3zm11 3h4l3 3v3h-7zM6.5 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4m11 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4"/></svg>Proveedores</a></li>
+          <li><a href="#/centros" data-ruta="centros"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7m0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5"/></svg>Centros</a></li>
+          <li><a href="#/categorias" data-ruta="categorias"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h8v8H3zm10 0h8v8h-8zM3 13h8v8H3zm10 4a4 4 0 1 0 8 0 4 4 0 0 0-8 0"/></svg>Categorías</a></li>
+          <li class="menu-sep" role="presentation"></li>
+          <li><a href="#/importar" data-ruta="importar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 3h2v10l3.5-3.5 1.4 1.4L12 16.8l-5.9-5.9 1.4-1.4L11 13zM4 19h16v2H4z"/></svg>Importar</a></li>
+          <li><a href="#/imprimir/presupuesto" data-ruta="imprimir"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v5H6zm-2 6h16a2 2 0 0 1 2 2v6h-4v4H6v-4H2v-6a2 2 0 0 1 2-2m4 7v3h8v-3z"/></svg>Informe imprimible</a></li>
+          <li><a href="#/ajustes" data-ruta="ajustes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.4 13a7.6 7.6 0 0 0 0-2l2.1-1.6-2-3.5-2.5 1a7.4 7.4 0 0 0-1.7-1L15 3h-4l-.4 2.7a7.4 7.4 0 0 0-1.7 1l-2.5-1-2 3.5L6.6 11a7.6 7.6 0 0 0 0 2l-2.1 1.6 2 3.5 2.5-1a7.4 7.4 0 0 0 1.7 1L11 21h4l.4-2.7a7.4 7.4 0 0 0 1.7-1l2.5 1 2-3.5zM13 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7"/></svg>Ajustes</a></li>
+        </ul>
+      </nav>
+      <div class="lateral-pie">
+        <label for="selector-tema">Tema</label>
+        <select id="selector-tema">
+          <option value="auto">Automático</option>
+          <option value="light">Claro</option>
+          <option value="dark">Oscuro</option>
+        </select>
+      </div>
+    </aside>
+    <div class="principal">
+      <header class="barra-sup">
+        <button type="button" class="btn btn-secundario btn-menu" id="btn-menu" aria-controls="lateral" aria-expanded="false">☰ Menú</button>
+        <div class="avisos-globales" id="avisos-globales"></div>
+      </header>
+      <main id="vista" tabindex="-1">
+        <p class="cargando">Cargando…</p>
+      </main>
+    </div>
+  </div>
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+  <noscript><p class="aviso aviso-error">Esta aplicación necesita JavaScript activado.</p></noscript>
+</body>
+</html>
