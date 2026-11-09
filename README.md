@@ -2,17 +2,15 @@
 
 Aplicación web para planificar las compras de material de una empresa de centros deportivos: artículos organizados por departamento, control del presupuesto anual de cada departamento con semáforo, y un Excel de pedido formal por proveedor.
 
-Está hecha con HTML, CSS y JavaScript vanilla (módulos ES): no hay paso de build, ni backend, ni login.
+Está hecha solo con HTML, CSS y JavaScript vanilla que el navegador carga directamente: no hay paso de build, ni servidor, ni backend, ni login.
 
 ## Puesta en marcha
 
-Los módulos ES y IndexedDB necesitan servirse por HTTP; abrir `index.html` como archivo no sirve. Cualquier servidor estático vale:
+Basta con **abrir `index.html` con doble clic** (o arrastrarlo al navegador). No hace falta ningún servidor. Funciona en Chrome, Edge y Firefox. Si lo prefiere, también puede subir la carpeta tal cual a un hosting interno.
 
-```bash
-python3 -m http.server 8080
-```
+Los datos se guardan en IndexedDB y van ligados a la forma de abrir la aplicación: no se comparten los de `index.html` abierto como archivo con los de la misma carpeta servida desde una dirección web. Si cambia de forma de abrirla, use una copia de seguridad para pasar los datos. En navegación privada, o si el navegador bloquea el almacenamiento para archivos locales, la aplicación avisa de que los datos solo duran mientras la pestaña esté abierta.
 
-Después abra <http://localhost:8080>. También se puede subir la carpeta tal cual a cualquier hosting interno.
+Por eso el código no usa módulos ES (`import`/`export`), que los navegadores bloquean al abrir una página como archivo. Cada archivo `js/*.js` es un script clásico que registra sus funciones en el objeto global `App` (por ejemplo `App.models`), y `index.html` los carga en orden de dependencias.
 
 Las librerías se cargan desde jsDelivr con versión fija, así que el equipo necesita acceso a `cdn.jsdelivr.net`:
 
@@ -75,7 +73,7 @@ Los datos se guardan solo en el navegador donde se usa la aplicación. **Ajustes
 index.html
 css/styles.css     estilos (variables en :root, modo claro/oscuro, responsive)
 css/print.css      impresión A4
-js/app.js          arranque, enrutado hash, tema y avisos globales
+js/app.js          arranque, enrutado hash, tema y avisos globales (se carga el último)
 js/db.js           IndexedDB con caché en memoria y copias de seguridad
 js/models.js       importes, IVA, presupuesto, semáforo y numeración
 js/format.js       formato es-ES (1.234,56 €, dd/mm/aaaa) y utilidades puras
