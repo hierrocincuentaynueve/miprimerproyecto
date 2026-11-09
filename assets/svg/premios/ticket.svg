@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+<circle cx="100" cy="100" r="92" fill="#fbe5bf"/>
+<circle cx="100" cy="100" r="84" fill="none" stroke="#d9a93a" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round"/>
+<path d="M40 43 Q40 52 49 52 Q40 52 40 61 Q40 52 31 52 Q40 52 40 43Z" fill="#d9a93a"/><path d="M162 53 Q162 60 169 60 Q162 60 162 67 Q162 60 155 60 Q162 60 162 53Z" fill="#f3d27a"/><path d="M156 148 Q156 156 164 156 Q156 156 156 164 Q156 156 148 156 Q156 156 156 148Z" fill="#d9a93a"/><path d="M44 144 Q44 150 50 150 Q44 150 44 156 Q44 150 38 150 Q44 150 44 144Z" fill="#f3d27a"/>
+<g fill="#fffdf7"><circle cx="64" cy="34" r="3"/><circle cx="140" cy="30" r="2.5"/><circle cx="176" cy="104" r="3"/><circle cx="24" cy="104" r="2.5"/></g>
+<g stroke="#2b1b17" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+
+<g transform="rotate(-10 100 110)">
+<path d="M34 76 H166 V98 A12 12 0 0 0 166 122 V144 H34 V122 A12 12 0 0 0 34 98Z" fill="#f3d27a"/>
+<path d="M128 80 V140" stroke-dasharray="4 7" stroke-width="3"/>
+<path d="M148.0 97.0 L151.2 105.6 L160.4 106.0 L153.2 111.7 L155.6 120.5 L148.0 115.5 L140.4 120.5 L142.8 111.7 L135.6 106.0 L144.8 105.6Z" fill="#b3122e" stroke-width="3"/>
+<rect x="50" y="92" width="62" height="10" rx="5" fill="#b3122e" stroke="none"/>
+<rect x="50" y="108" width="48" height="7" rx="3.5" fill="#2b1b17" stroke="none" opacity=".75"/>
+<rect x="50" y="121" width="56" height="7" rx="3.5" fill="#2b1b17" stroke="none" opacity=".75"/>
+</g>
+<g stroke-width="3"><g fill="#1f6b45"><path d="M52.0 76.0 C39.2 58.4 24.8 64.8 29.6 76.0 C24.8 87.2 40.8 87.2 52.0 76.0Z"/><path d="M52.0 76.0 C64.8 58.4 79.2 64.8 74.4 76.0 C79.2 87.2 63.2 87.2 52.0 76.0Z"/><path d="M50.4 77.6 L40.8 96.8 L46.4 94.4 L48.8 100.0 L53.6 79.2Z"/><path d="M53.6 77.6 L63.2 96.8 L57.6 94.4 L55.2 100.0 L50.4 79.2Z"/><circle cx="52" cy="76" r="4.8"/></g></g>
+
+</g>
+<g transform="translate(150 40) rotate(10) scale(0.9)"><path d="M0 0 C8 -9 14 -6 18 -12 C20 -6 26 -6 30 -8 C28 -2 32 2 36 2 C26 8 12 10 0 0Z" fill="#1f6b45" transform="rotate(-20)"/><path d="M0 0 C8 -9 14 -6 18 -12 C20 -6 26 -6 30 -8 C28 -2 32 2 36 2 C26 8 12 10 0 0Z" fill="#0f3d27" transform="scale(-1 1) rotate(-20)"/><circle cx="-4" cy="-4" r="5.5" fill="#b3122e"/><circle cx="5" cy="-6" r="5.5" fill="#b3122e"/><circle cx="1" cy="3" r="5.5" fill="#7d0c20"/></g>
+</svg>

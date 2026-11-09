@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+<circle cx="100" cy="100" r="92" fill="#fbe5bf"/>
+<g fill="#fffdf7" stroke="#d9a93a" stroke-width="1.5"><circle cx="34" cy="70" r="4"/><circle cx="166" cy="52" r="3.5"/><circle cx="160" cy="120" r="4"/><circle cx="42" cy="132" r="3.5"/><circle cx="60" cy="40" r="3"/></g>
+<g stroke="#2b1b17" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round">
+<path d="M100 40 V172" stroke="#9aa0a8" stroke-width="6"/>
+<rect x="40.0" y="158" width="120.0" height="13" rx="6.5" fill="#1f6b45"/><rect x="28.0" y="159" width="10" height="11" rx="2" fill="#d9a93a"/><rect x="162.0" y="159" width="10" height="11" rx="2" fill="#b3122e"/><rect x="48.4" y="138" width="103.2" height="13" rx="6.5" fill="#0f3d27"/><rect x="36.4" y="139" width="10" height="11" rx="2" fill="#b3122e"/><rect x="153.6" y="139" width="10" height="11" rx="2" fill="#d9a93a"/><rect x="56.8" y="118" width="86.4" height="13" rx="6.5" fill="#1f6b45"/><rect x="44.8" y="119" width="10" height="11" rx="2" fill="#d9a93a"/><rect x="145.2" y="119" width="10" height="11" rx="2" fill="#b3122e"/><rect x="65.2" y="98" width="69.6" height="13" rx="6.5" fill="#0f3d27"/><rect x="53.2" y="99" width="10" height="11" rx="2" fill="#b3122e"/><rect x="136.8" y="99" width="10" height="11" rx="2" fill="#d9a93a"/><rect x="73.6" y="78" width="52.8" height="13" rx="6.5" fill="#1f6b45"/><rect x="61.6" y="79" width="10" height="11" rx="2" fill="#d9a93a"/><rect x="128.4" y="79" width="10" height="11" rx="2" fill="#b3122e"/><rect x="82.0" y="58" width="36.0" height="13" rx="6.5" fill="#0f3d27"/><rect x="70.0" y="59" width="10" height="11" rx="2" fill="#b3122e"/><rect x="120.0" y="59" width="10" height="11" rx="2" fill="#d9a93a"/>
+<path d="M100.0 18.0 L105.0 31.1 L119.0 31.8 L108.1 40.6 L111.8 54.2 L100.0 46.5 L88.2 54.2 L91.9 40.6 L81.0 31.8 L95.0 31.1Z" fill="#f3d27a"/>
+<path d="M24 176 C60 166 140 166 176 176" fill="#fffdf7"/>
+<rect x="36" y="150" width="28" height="24" rx="3" fill="#b3122e"/><path d="M50 150 V174" stroke="#d9a93a" stroke-width="5"/>
+<rect x="138" y="146" width="30" height="28" rx="3" fill="#d9a93a"/><path d="M153 146 V174" stroke="#b3122e" stroke-width="5"/>
+</g>
+<path d="M150 22 Q150 30 158 30 Q150 30 150 38 Q150 30 142 30 Q150 30 150 22Z" fill="#d9a93a"/><path d="M48 94 Q48 100 54 100 Q48 100 48 106 Q48 100 42 100 Q48 100 48 94Z" fill="#d9a93a"/>
+</svg>

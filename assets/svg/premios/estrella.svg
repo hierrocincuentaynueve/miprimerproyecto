@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+<circle cx="100" cy="100" r="92" fill="#fbe5bf"/>
+<circle cx="100" cy="100" r="84" fill="none" stroke="#d9a93a" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round"/>
+<path d="M40 43 Q40 52 49 52 Q40 52 40 61 Q40 52 31 52 Q40 52 40 43Z" fill="#d9a93a"/><path d="M162 53 Q162 60 169 60 Q162 60 162 67 Q162 60 155 60 Q162 60 162 53Z" fill="#f3d27a"/><path d="M156 148 Q156 156 164 156 Q156 156 156 164 Q156 156 148 156 Q156 156 156 148Z" fill="#d9a93a"/><path d="M44 144 Q44 150 50 150 Q44 150 44 156 Q44 150 38 150 Q44 150 44 144Z" fill="#f3d27a"/>
+<g fill="#fffdf7"><circle cx="64" cy="34" r="3"/><circle cx="140" cy="30" r="2.5"/><circle cx="176" cy="104" r="3"/><circle cx="24" cy="104" r="2.5"/></g>
+<g stroke="#2b1b17" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+
+<path d="M100.0 40.0 L115.3 81.0 L159.0 82.8 L124.7 110.0 L136.4 152.2 L100.0 128.0 L63.6 152.2 L75.3 110.0 L41.0 82.8 L84.7 81.0Z" fill="#f3d27a"/>
+<path d="M100.0 62.0 L110.0 88.2 L138.0 89.6 L116.2 107.3 L123.5 134.4 L100.0 119.0 L76.5 134.4 L83.8 107.3 L62.0 89.6 L90.0 88.2Z" fill="#d9a93a" stroke="none"/>
+<path d="M62 158 C80 150 120 150 138 158 L134 170 C118 164 82 164 66 170Z" fill="#b3122e"/>
+<path d="M62 158 L48 162 L56 170 L48 178 L66 170Z M138 158 L152 162 L144 170 L152 178 L134 170Z" fill="#7d0c20"/>
+
+</g>
+
+</svg>
