@@ -1,4 +1,4 @@
-// Generación del pedido formal por proveedor con ExcelJS (global `ExcelJS` cargado desde CDN).
+// Generación del pedido formal por proveedor con ExcelJS (global `ExcelJS` cargado desde vendor/).
 // Script clásico (sin módulos ES) para que funcione abriendo index.html directamente.
 window.App = window.App || {};
 (function () {

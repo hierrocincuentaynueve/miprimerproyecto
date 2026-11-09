@@ -93,7 +93,7 @@ window.App = window.App || {};
         <div class="tarjeta"><h3>Gasto por categoría</h3>
           <div class="graf-cont alto"><canvas id="g-cat" role="img" aria-label="Gráfico de barras: gasto por categoría"></canvas></div><div id="t-cat"></div></div>
       </section>
-      ${globalThis.Chart ? '' : '<p class="aviso aviso-aviso">No se ha podido cargar Chart.js desde el CDN; los gráficos no están disponibles, pero puede consultar los datos en las tablas.</p>'}`;
+      ${globalThis.Chart ? '' : '<p class="aviso aviso-aviso">No se ha podido cargar Chart.js (vendor/chart-4.4.1.umd.js); los gráficos no están disponibles, pero puede consultar los datos en las tablas.</p>'}`;
 
     $('#sel-ejercicio', main)?.addEventListener('change', (e) => { ejercicio = Number(e.target.value); render(main); });
     window.addEventListener('cambio-tema', alCambiarTema);

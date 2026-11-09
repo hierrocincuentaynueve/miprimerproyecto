@@ -146,7 +146,7 @@ window.App = window.App || {};
 
   function requiereLibreria(nombre, global) {
     if (!globalThis[global]) {
-      toast(`No se ha podido cargar la librería ${nombre}. Compruebe la conexión a Internet (se carga desde CDN) y recargue la página.`, 'error');
+      toast(`No se ha podido cargar la librería ${nombre}. Compruebe que la carpeta vendor/ está junto a index.html y recargue la página.`, 'error');
       return false;
     }
     return true;

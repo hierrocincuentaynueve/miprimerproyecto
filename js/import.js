@@ -81,13 +81,13 @@ window.App = window.App || {};
     const nombre = file.name.toLowerCase();
     const buffer = await file.arrayBuffer();
     if (nombre.endsWith('.csv') || nombre.endsWith('.txt') || file.type === 'text/csv') {
-      if (!globalThis.Papa) throw new Error('No se ha podido cargar Papa Parse (CDN).');
+      if (!globalThis.Papa) throw new Error('No se ha podido cargar Papa Parse (falta vendor/papaparse-5.4.1.min.js).');
       const r = globalThis.Papa.parse(decodificar(buffer), { skipEmptyLines: 'greedy' });
       if (r.errors?.length && !r.data.length) throw new Error('El CSV no se puede leer: ' + r.errors[0].message);
       return { filas: r.data.map((f) => f.map((c) => String(c ?? '').trim())), hoja: null };
     }
     if (nombre.endsWith('.xlsx')) {
-      if (!globalThis.ExcelJS) throw new Error('No se ha podido cargar ExcelJS (CDN).');
+      if (!globalThis.ExcelJS) throw new Error('No se ha podido cargar ExcelJS (falta vendor/exceljs-4.4.0.min.js).');
       const wb = new globalThis.ExcelJS.Workbook();
       await wb.xlsx.load(buffer);
       const ws = wb.worksheets.find((w) => w.actualRowCount > 0) || wb.worksheets[0];

@@ -12,15 +12,15 @@ Los datos se guardan en IndexedDB y van ligados a la forma de abrir la aplicaci�
 
 Por eso el código no usa módulos ES (`import`/`export`), que los navegadores bloquean al abrir una página como archivo. Cada archivo `js/*.js` es un script clásico que registra sus funciones en el objeto global `App` (por ejemplo `App.models`), y `index.html` los carga en orden de dependencias.
 
-Las librerías se cargan desde jsDelivr con versión fija, así que el equipo necesita acceso a `cdn.jsdelivr.net`:
+La aplicación **no tiene dependencias externas**: no necesita servidor ni conexión a Internet. Las tres librerías que usa están incluidas en la carpeta `vendor/`, con versión fija y sus licencias MIT en `vendor/licencias/`:
 
 | Librería | Versión | Uso |
 |---|---|---|
-| ExcelJS | 4.4.0 | Generar los pedidos y las plantillas, y leer .xlsx |
-| Papa Parse | 5.4.1 | Importar CSV |
-| Chart.js | 4.4.1 | Gráficos del panel |
+| ExcelJS | 4.4.0 (`vendor/exceljs-4.4.0.min.js`) | Generar los pedidos y las plantillas, y leer .xlsx |
+| Papa Parse | 5.4.1 (`vendor/papaparse-5.4.1.min.js`) | Importar CSV |
+| Chart.js | 4.4.1 (`vendor/chart-4.4.1.umd.js`) | Gráficos del panel |
 
-Si alguna no carga, la aplicación sigue funcionando y avisa de qué función queda deshabilitada. Para trabajar sin Internet, descargue esos tres archivos, déjelos en una carpeta `vendor/` y cambie las tres etiquetas `<script>` de `index.html`.
+Copie siempre la carpeta completa: si falta `vendor/`, la aplicación sigue funcionando, pero avisa de qué función queda deshabilitada (Excel, CSV o gráficos).
 
 Para empezar, use **Panel → Cargar datos de ejemplo** o **Ajustes → Datos de ejemplo**. Se cargan 5 departamentos, 3 centros, 5 proveedores y 31 artículos ficticios, que luego se pueden borrar sin tocar sus propios datos.
 
@@ -83,6 +83,7 @@ js/import.js       lectura xlsx/csv, mapeo, validación y plantillas
 js/charts.js       gráficos con Chart.js
 js/sample.js       datos de ejemplo
 js/views/*.js      una vista por pantalla (crud.js es el generador común)
+vendor/            ExcelJS, Papa Parse y Chart.js (licencias en vendor/licencias/)
 ```
 
 ## Limitaciones conocidas

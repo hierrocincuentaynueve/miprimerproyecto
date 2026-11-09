@@ -1,4 +1,4 @@
-// Gráficos del panel con Chart.js (cargado desde CDN como global `Chart`).
+// Gráficos del panel con Chart.js (cargado desde vendor/ como global `Chart`).
 // Script clásico (sin módulos ES) para que funcione abriendo index.html directamente.
 window.App = window.App || {};
 (function () {
