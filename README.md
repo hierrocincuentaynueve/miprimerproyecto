@@ -2,7 +2,8 @@
 
 Web estática con un **gimnasio navideño en 3D** (Three.js) con 24 regalos numerados alrededor de un árbol hecho de discos de pesas y mancuernas. Cada día del 1 al 24 de diciembre de 2026 (hora de España) se desbloquea un regalo con una promoción para socios, que se canjea **en la recepción del centro** con un código y su QR.
 
-- HTML + CSS + JavaScript (módulos ES). Sin frameworks, sin bundler, sin paso de build y sin backend.
+- Solo HTML + CSS + JavaScript que el navegador ejecuta directamente. Sin frameworks, sin bundler, sin paso de build y sin backend.
+- **Funciona abriendo `index.html` con doble clic**, sin servidor (también se puede subir a cualquier hosting).
 - Three.js `0.170.0` y `qrcode-generator 1.4.4` desde jsDelivr, con versión fija.
 - Si el dispositivo no tiene WebGL o va lento, se activa una **vista sencilla 2D** con la misma lógica y la misma ventana de premio.
 
@@ -23,7 +24,9 @@ assets/svg/           Logo provisional, favicon, guirnalda, cuenta atrás, felic
 assets/svg/premios/   12 ilustraciones de premios (reutilizables)
 ```
 
-Flujo: `main.js` crea el calendario → pinta la lista de 24 botones → carga `scene.js` con `import()` dinámico (así la barra de progreso avanza mientras se descarga Three.js) → si algo falla o los FPS medidos son < 20, destruye la escena y pasa a 2D.
+Los archivos de `js/` son **scripts clásicos** (no módulos ES): cada uno se envuelve en una función y publica lo que necesitan los demás en `window.Adviento`. Se cargan con `<script defer>` en este orden: `prizes` → `calendar` → `modal` → `audio` → `scene` → `main`. Así el navegador los acepta también desde `file://`, donde bloquea los módulos ES locales.
+
+Flujo: `main.js` crea el calendario → pinta la lista de 24 botones → `scene.js` descarga Three.js del CDN con `import()` dinámico (resuelto por el `importmap`; la barra de progreso avanza mientras tanto) → construye la escena → si algo falla o los FPS medidos son < 20, la destruye y pasa a 2D.
 
 ### Distribución de la escena
 
@@ -49,17 +52,17 @@ Al abrir: la caja se encoge, la tapa sale volando girando, estalla confeti dorad
 
 ## Probar en local
 
-Los módulos ES no funcionan abriendo el archivo con doble clic (`file://`); hace falta un servidor local:
+Abre **`index.html` con doble clic** (o arrástralo al navegador). No hace falta instalar nada ni arrancar un servidor. Solo se necesita conexión a internet para descargar Three.js, el generador de QR y las fuentes desde sus CDN; sin conexión, la web pasa sola a la vista 2D y el código del premio se sigue viendo, aunque sin QR.
 
-```bash
-python3 -m http.server 8080
+Los parámetros de prueba se añaden al final de la dirección que muestra el navegador, por ejemplo:
+
+```
+file:///C:/Users/tu-usuario/Descargas/miprimerproyecto/index.html?fecha=2026-12-15
 ```
 
-```bash
-npx serve .
-```
+Si lo prefieres, también funciona con un servidor local (`python3 -m http.server 8080` o `npx serve .`).
 
-y abre `http://localhost:8080` (o la URL que indique `serve`).
+> Nota: al abrirlo desde `file://`, algunos navegadores (Firefox, Safari) guardan las casillas abiertas por archivo o pueden no conservarlas entre sesiones. Publicado en un hosting se comporta de forma normal.
 
 ### Simular fechas: `?fecha=`
 

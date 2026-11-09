@@ -24,7 +24,14 @@
   </script>
   <!-- Generador de códigos QR (ligero, sin dependencias) -->
   <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js" defer></script>
-  <script type="module" src="js/main.js"></script>
+  <!-- Scripts clásicos (no módulos): así la web funciona también abriendo
+       index.html directamente, sin servidor. El orden importa. -->
+  <script src="js/prizes.js" defer></script>
+  <script src="js/calendar.js" defer></script>
+  <script src="js/modal.js" defer></script>
+  <script src="js/audio.js" defer></script>
+  <script src="js/scene.js" defer></script>
+  <script src="js/main.js" defer></script>
 </head>
 <body>
   <a class="saltar" href="#casillas">Saltar a la lista de casillas</a>
